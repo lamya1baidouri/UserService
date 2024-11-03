@@ -12,7 +12,15 @@ public class LoginRequest {
     @NotBlank(message = "Password is mandatory")
     private String password;
 
+   
+    public LoginRequest() {
+    }
 
+    // Nouveau constructeur avec paramètres
+    public LoginRequest(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     public String getEmail() {
         return email;

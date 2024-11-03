@@ -41,6 +41,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/users/*/reset-password").hasAnyRole("USER", "DOCTOR")  // Autoriser USER et DOCTOR à réinitialiser le mot de passe
                         .requestMatchers(HttpMethod.GET, "/api/users").authenticated()  // Autoriser tous les utilisateurs authentifiés à récupérer la liste des utilisateurs
                         .requestMatchers(HttpMethod.GET, "/api/users/{userId}").authenticated()  // Autoriser tous les utilisateurs authentifiés à récupérer un utilisateur par ID
+                        .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers("/api/users/**").hasRole("ADMIN")  // Restreindre les autres actions utilisateurs à ADMIN
                         .anyRequest().authenticated()  // Toute autre route doit être authentifiée
                 )
